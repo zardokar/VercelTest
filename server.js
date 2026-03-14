@@ -1,6 +1,6 @@
 const http = require('http')
 // ---------------------------------------------------------------
-const PORT = 9888
+const PORT = process.env.PORT || 9888
 // ---------------------------------------------------------------
 function onClientRequest(req,resp)
 {
