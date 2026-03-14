@@ -1,0 +1,16 @@
+const http = require('http')
+// ---------------------------------------------------------------
+const PORT = 9888
+// ---------------------------------------------------------------
+function onClientRequest(req,resp)
+{
+    resp.writeHead(200, { 'Content-Type' : 'application/json' })
+
+    resp.write(JSON.stringify( { message: 'Hello Vercel class' } ))
+
+    resp.end()
+}
+// ---------------------------------------------------------------
+const server = http.createServer( onClientRequest )
+server.listen(PORT)
+console.log('running on '+PORT)
