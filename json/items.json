@@ -1,0 +1,18 @@
+[
+        {
+            "rarity": "C"
+            ,"name" : "Iron Sword"
+        }
+       ,{
+            "rarity": "R"
+            ,"name" : "Red Iron Sword"
+        }
+       ,{
+            "rarity": "SR"
+            ,"name" : "Thunder Iron Sword"
+        }
+       ,{
+            "rarity": "SSR"
+            ,"name" : "Aurion Holy Sword"
+        }
+]
