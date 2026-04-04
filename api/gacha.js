@@ -4,8 +4,10 @@ const rands = require('../libs/random')
 
 // --------------------------------------------------------------------
 function onRequestGacha(resp)
-{
-    resp.write( JSON.stringify(rands.drawGacha(rates, items)) )
+{   
+    const result = rands.drawGacha(rates, items)
+    console.log( result )
+    resp.write( JSON.stringify(result) )
 }
 // --------------------------------------------------------------------
 
