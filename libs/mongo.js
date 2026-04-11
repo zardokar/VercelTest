@@ -1,4 +1,6 @@
 const { MongoClient }   = require('mongodb')
+const dns               = require('dns')
+dns.setServers(['8.8.8.8', '1.1.1.1'])
 
 const   db_protocol     = `mongodb+srv://`,
         db_path         = ``,
@@ -8,7 +10,7 @@ const   db_protocol     = `mongodb+srv://`,
 
 let     authuser        = {
                             username: `admin_db`, 
-                            password: `I8YtZzCQs7VuyNuI`
+                            password: `admin1234`
                         }
 
 let     options         = {            
