@@ -1,6 +1,5 @@
 const { MongoClient }   = require('mongodb')
-const dns               = require('dns')
-dns.setServers(['8.8.8.8', '1.1.1.1'])
+const mongofunc         = require('./mongofunc')
 
 const   db_protocol     = `mongodb+srv://`,
         db_path         = ``,
@@ -20,23 +19,16 @@ let     options         = {
 
 async function runMongo()
 {
-    const dbconn    = await MongoClient.connect(db_url, options);
-    const db        = dbconn.db('testDB')
-    
-    console.log('Connected to MongoDB')
-
-    const collection = db.collection('testdoc')
-
-    const insertResult = await collection.insertMany([{ a: 1 }, { a: 2 }, { a: 3 }])
+    const insertResult = await mongofunc.insert( 'testdb','test', [{ a: 1 }, { a: 2 }, { a: 3 }] )
     console.log( insertResult )
 
-    const findResult = await collection.find({})
+    const updresult  = await mongofunc.update( 'testdb','test', { a:3 }, { $set: { a: 4 , name : "Golf"} } )
+    const remres  = await mongofunc.remove('testdb','test', { a:2 } )
+    const result  = await mongofunc.find('testdb','test',{})
 
-    for await (const doc of findResult) {
+    for (const doc of result) {
         console.log(doc);
     }
-
-    await dbconn.close()
 }
 
 module.exports = {

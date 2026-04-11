@@ -2,6 +2,9 @@ const http = require('http')
 
 const api_gacha = require('./api/gacha')
 const mongo     = require('./libs/mongo')
+
+const dns               = require('dns')
+dns.setServers(['8.8.8.8', '1.1.1.1'])
 // ---------------------------------------------------------------
 const PORT = process.env.PORT || 9888
 // ---------------------------------------------------------------
